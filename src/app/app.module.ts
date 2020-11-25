@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
 import { MyApplicationComponent } from './my-application/my-application.component';
+import { EtablissementComponent } from './etablissement/etablissement.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MyApplicationComponent } from './my-application/my-application.componen
     LoginComponent,
     Error404Component,
     Error500Component,
-    MyApplicationComponent
+    MyApplicationComponent,
+    EtablissementComponent
   ],
   imports: [
     BrowserModule,
