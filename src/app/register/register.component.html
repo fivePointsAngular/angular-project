@@ -1,8 +1,5 @@
-
 <div class="row mt-4 offset-4 col-4">
     <form class="example-form text-secondary" [formGroup]="registForm" (ngSubmit)="submitregister()">
-
-
         <mat-form-field appearance="fill" class="example-full-width" >
             <mat-label class="typeuser"> Choose your Type </mat-label>
             <mat-select formControlName="typeUser" [(value)]="selected" (ngModelChange)="updateValidation($event)">
@@ -31,7 +28,6 @@
         </mat-form-field>
 
         <mat-form-field *ngIf="selected=='candidate'" appearance="fill">
-        <mat-form-field appearance="fill">
             <mat-label> Last Name</mat-label>
             <input matInput formControlName="lname">
             <mat-error *ngIf="registForm.controls.fname.hasError('required')">
@@ -40,7 +36,6 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
-        <mat-form-field class="d-block" appearance="fill">
             <mat-label>Email</mat-label>
             <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
             <mat-error
@@ -53,7 +48,6 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
-        <mat-form-field class="d-block" appearance="fill">
             <mat-label>Telephone</mat-label>
             <span matPrefix>+216 &nbsp;&nbsp;</span>
             <input type="tel" matInput placeholder="22-222-222" formControlName="phone">
@@ -73,8 +67,6 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill" class="example-full-width">
-
-        <mat-form-field appearance="fill" class="d-block">
             <mat-label>Enter your password</mat-label>
             <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
