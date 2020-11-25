@@ -1,1 +1,39 @@
-
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <div class="list-group mt-3">
+            <a href="#" class="list-group-item list-group-item-action">Super Administrateur </a>
+            <a href="#" class="list-group-item list-group-item-action">List Condidat </a>
+            <a href="#" class="list-group-item list-group-item-action">List établissement</a>
+            <a href="#" class="list-group-item list-group-item-action">Update Profil</a>
+        </div>       
+    </mat-drawer>
+    <mat-drawer-content>
+            <div class="table mt-3">
+                <table class="table table-hover table-striped table-bordered">
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>Id</th>
+                            <th>etbName</th>
+                            <th> email</th>
+                            <th>phone</th>
+                            <th>fax </th>
+                            <th> gérer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users ,let i = index">
+                            <td>{{ i }}</td>
+                            <td>{{user.etbName }}</td>
+                            <td>{{user.email }}</td>
+                            <td>{{user.phone }}</td>
+                            <td>{{user.fax }}</td>
+                            <td class="text-center">
+                                <button class="btn btn-info mr-3" (click)="deletUser(user.id)">Delete</button>
+                                <a class="btn btn-danger" [routerLink]="['/dashboard/update', user.id]">Update</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>      
+    </mat-drawer-content>
+</mat-drawer-container>
