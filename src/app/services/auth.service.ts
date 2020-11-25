@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
   constructor() { }
 
   register(user) {
@@ -23,4 +24,21 @@ export class AuthService {
       return false;
     }
   }
+
+  public isAuthentificated(): boolean{
+    const token = localStorage.getItem('token');
+    if(token == null){
+      return true;
+    }else{
+      return false;
+    }
+  }
+logout(){
+  localStorage.removeItem('token');
+  this.isLoginSubject.next(false);
+}
+  isLoggedIn(): Observable <boolean>{
+    return this.isLoginSubject.asObservable();
+  }
+
 }

@@ -6,6 +6,7 @@ import { Error500Component } from './error500/error500.component';
 import { LoginComponent } from './login/login.component';
 import { MyApplicationComponent } from './my-application/my-application.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
@@ -19,14 +20,17 @@ const routes: Routes = [
   },{
     path: 'register',
     component: RegisterComponent,
+    canActivate:[AuthGuard]
   } ,
   {
     path: 'MyApp',
     component: MyApplicationComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'profil',
     component: ProfilComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'error500',
