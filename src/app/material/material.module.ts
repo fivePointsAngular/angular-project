@@ -13,7 +13,7 @@ const MatrialComponent=[
   MatFormFieldModule,
   MatInputModule,
   MatDividerModule,
-  MatSelectModule
+  MatSelectModule,
 ]
 
 
