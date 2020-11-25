@@ -1,0 +1,35 @@
+<div class=" row offset-4 col-4 mt-4 ">
+    <form class="example-container text-secondary" [formGroup]="loginForm" (ngSubmit)="submitlogin()">
+
+        <mat-form-field class="d-block" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+            <mat-error
+                *ngIf="loginForm.controls.email.hasError('email') && !loginForm.controls.email.hasError('required')">
+                Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+                Email is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="d-block">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error
+                *ngIf="loginForm.controls.password.hasError('minlength') && !loginForm.controls.password.hasError('required')">
+                Please enter a valid password
+            </mat-error>
+            <mat-error *ngIf="loginForm.controls.password.hasError('required')">
+                password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        
+        <br>
+        <div><button type="submit" class="btn btn-block btn-dark">login</button></div>
+    </form>
+</div>
