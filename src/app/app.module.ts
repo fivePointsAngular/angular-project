@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
 import { MyApplicationComponent } from './my-application/my-application.component';
+import { EtablissementComponent } from './etablissement/etablissement.component';
 import { ProfilComponent } from './profil/profil.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
@@ -29,6 +30,7 @@ import { AvatarComponent } from './avatar/avatar.component';
     Error404Component,
     Error500Component,
     MyApplicationComponent,
+    EtablissementComponent,
     ProfilComponent,
     AvatarComponent
 
