@@ -1,3 +1,4 @@
+import { ProfilComponent } from './profil/profil.component';
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Error404Component } from './error404/error404.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'MyApp',
     component: MyApplicationComponent,
+  },
+  {
+    path: 'profil',
+    component: ProfilComponent,
   },
   {
     path: 'error500',
