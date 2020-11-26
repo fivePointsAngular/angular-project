@@ -11,18 +11,18 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   hide = true;
-  submited=true;
-  loginForm :FormGroup;
+  submited = true;
+  loginForm: FormGroup;
 
-  constructor(private AuthServices :AuthService, private route: Router) { }
+  constructor(private AuthServices: AuthService , private route: Router) { }
 
   ngOnInit(): void {
-    this.loginForm=new FormGroup({
+    this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required,Validators.minLength(5)]),
     });
-    
-    
+
+
   }
   submitlogin() {
     this.submited = true;
@@ -30,11 +30,11 @@ export class LoginComponent implements OnInit {
       console.log("invalid");
       return;
     }
-   
-  if( this.AuthServices.login(this.loginForm.value)){
+
+  if ( this.AuthServices.login(this.loginForm.value)){
     this.route.navigateByUrl("/MyApp");
   }
-    
+
   }
 
 }
