@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatRippleModule} from '@angular/material/core';
 import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
+import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AvatarComponent } from './avatar/avatar.component';
     EtablissementComponent,
     ProfilComponent,
     AvatarComponent,
-   
+    SuperAdministrateurComponent
+
   ],
   imports: [
     BrowserModule,
