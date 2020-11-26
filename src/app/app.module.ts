@@ -20,7 +20,6 @@ import {MatRippleModule} from '@angular/material/core';
 import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +31,8 @@ import { AvatarComponent } from './avatar/avatar.component';
     MyApplicationComponent,
     EtablissementComponent,
     ProfilComponent,
-    AvatarComponent
-
+    AvatarComponent,
+   
   ],
   imports: [
     BrowserModule,

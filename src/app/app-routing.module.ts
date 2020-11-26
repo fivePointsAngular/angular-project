@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MyApplicationComponent } from './my-application/my-application.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
+import { EtablissementComponent } from './etablissement/etablissement.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'MyApp',
     component: MyApplicationComponent,
+    children:[{
+      path:'',
+      component:EtablissementComponent
+    }],
     canActivate:[AuthGuard]
   },
   {
