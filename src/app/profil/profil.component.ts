@@ -1,5 +1,7 @@
+import { Observable, Subscriber } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-profil',
@@ -7,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profil.component.css']
 })
 export class ProfilComponent implements OnInit {
-image:string="http://thedesignangel.co.uk/wp-content/uploads/2012/12/300-80x80-copy.jpg";
-  submited=true;
+  image:string=null;
+  submited=false;
   profilForm :FormGroup;
   constructor() { }
 
   ngOnInit(): void {
-    this.profilForm=new FormGroup({
+    this.profilForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     adresse : new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
@@ -24,8 +26,36 @@ image:string="http://thedesignangel.co.uk/wp-content/uploads/2012/12/300-80x80-c
   submitProfil() {
     this.submited = true;
     if (this.profilForm.invalid) {
-      console.log("invalid");
       return;
     }
   }
+  onSelectFile(e){
+if (e.target.files) {
+  var reader= new FileReader();
+  reader.readAsDataURL(e.target.files[0]);
+  reader.onload =(event:any)=>{
+    this.image = event.target.result;
+  }
+}
+  }
+
+//   convertToBase64 (file:File){
+// const observable = new Observable ((subscriber:Subscriber)=>{
+//   this.readFile(file,subscriber);
+
+// });
+
+//   }
+
+//   readFile(file:File , subscriber:Subscriber<any>){
+// const filereader = new FileReader();
+// filereader.readAsDataURL(file);
+// filereader.onload =()=>{
+//   subscriber.next(filereader.result);
+// }
+// filereader.onerror =(error)=>{
+//   subscriber.error(error);
+//   subscriber.complete();
+// }
+//   }
 }
