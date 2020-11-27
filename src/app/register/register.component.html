@@ -7,7 +7,7 @@
         <mat-option value="establishment">establishment </mat-option>
       </mat-select>
       <mat-error *ngIf="registForm.controls.typeUser.hasError('required')">
-         Type of user is required.
+        Type of user is required.
       </mat-error>
     </mat-form-field>
 
@@ -55,6 +55,7 @@
         Phone is required.
       </mat-error>
     </mat-form-field>
+
     <mat-form-field *ngIf="selected=='establishment'" appearance="fill" class="example-full-width">
       <mat-label>Fax</mat-label>
       <span matPrefix>+216 &nbsp;&nbsp;</span>
