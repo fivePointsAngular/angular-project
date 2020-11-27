@@ -17,6 +17,7 @@ isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
   login(user) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const use = users.find(x => x.email === user.email || x.password === user.password);
+    localStorage.setItem('authentificated_user', JSON.stringify(use));
 
     if (use !== undefined) {
       localStorage.setItem('token', 'JWT');
@@ -37,6 +38,7 @@ isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
 
 logout(){
   localStorage.removeItem('token');
+  localStorage.removeItem('authentificated_user');
   this.isLoginSubject.next(false);
 }
 
@@ -44,9 +46,6 @@ logout(){
     return this.isLoginSubject.asObservable();
   }
 
-  getUserType(typeUser) {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-    return users[typeUser];
-  }
+
 
 }

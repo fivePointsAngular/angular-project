@@ -1,80 +1,79 @@
 <form class="create-form" [formGroup]="profilForm" novalidate (ngSubmit)="submitProfil()">
 
-    <div style="text-align:center;">
-      <br>
-      <mat-card-title>Conditate Profil</mat-card-title>
-    </div>
-    <div class="row">
-      <div class="col col-md-4">
-        <img *ngIf="image!=null" src={{image}} alt="image" class="img-avatar" ><br>
-        <div style="text-align:center;">
-        <input  [writeFile]="true" type="file"(change)="onSelectFile($event)"  accept='image/*' formControlName="image">
-        <!-- <div *ngIf="profilForm.controls.image.errors.extension">Le champ photo de profil doit être une image (JPG, PNG, JPEG).</div> -->
-
+  <div style="text-align:center;">
+    <br>
+    <mat-card-title>Conditate Profil</mat-card-title>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <img *ngIf="image!=null" src={{image}} alt="image" class="img-avatar"><br>
+      <div style="text-align:center;">
+        <div class="form-group">
+          <input type="file" (change)="onSelectFile($event)" accept='image/*' formControlName="image">
         </div>
-        <!-- <button mat-stroked-button class="change-img-button" color="basic" >Change Image</button> -->
-      </div>
-
-      <div class="col col-md-8">
-          <div class="form-group">
-            <mat-form-field class="d-block" appearance="fill">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input matInput placeholder="Name" formControlName="name">
-            </mat-form-field>
-            <mat-error *ngIf="submited && profilForm.controls.name.hasError('required')">
-              first name is <strong>required</strong>
-            </mat-error>
-          </div>
-
-            <div class="form-group">
-              <mat-form-field class="d-block" appearance="fill">
-                <i class="fa fa-user-o" aria-hidden="true"></i>
-                <input matInput placeholder="Last Name" formControlName="lastname">
-              </mat-form-field>
-              <mat-error *ngIf="submited && profilForm.controls.lastname.hasError('required')">
-                last name is <strong>required</strong>
-              </mat-error>
-            </div>
-
-          <div class="form-group">
-            <mat-form-field class="d-block" appearance="fill">
-              <i class="fa fa-address-card" aria-hidden="true"></i>
-              <input matInput placeholder="Adresse" formControlName="adresse">
-            </mat-form-field>
-            <mat-error *ngIf="submited && profilForm.controls.adresse.hasError('required')">
-              adresse is <strong>required</strong>
-            </mat-error>
-          </div>
-
-          <div class="form-group">
-            <mat-form-field class="d-block" appearance="fill">
-              <i class="fa fa-briefcase" aria-hidden="true"></i>
-              <input matInput placeholder="Degree" class="form-control" formControlName="degree">
-            </mat-form-field>
-            <mat-error *ngIf="submited && profilForm.controls.degree.hasError('required')">
-              Degree is <strong>required</strong>
-            </mat-error>
-          </div>
-
-          <div class="form-group">
-            <mat-form-field class="d-block" appearance="fill">
-              <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-              <input matInput type="number" min="0" max="100" placeholder="Age"
-                formControlName="age">
-            </mat-form-field>
-            <mat-error *ngIf="submited && profilForm.controls.age.hasError('required')">
-              Age is <strong>required</strong>
-            </mat-error>
-
-          </div>
-          <div class="row submit-button-container">
-            <div class="col-md-4">
-              <button mat-raised-button class="btn btn-block btn-dark" type="submit">Create Account</button>
-            </div>
-          </div>
-          <!-- [disabled]="!profilForm.valid" -->
+        <mat-error *ngIf="profilForm.controls.image.hasError('extension')">
+          Le champ photo de profil doit être une image (JPG, PNG, JPEG).
+        </mat-error>
       </div>
     </div>
-  </form>
 
+    <div class="col-md-8">
+      <div class="form-group">
+        <mat-form-field class="d-block" appearance="fill">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <input matInput placeholder="Name" formControlName="fname">
+        </mat-form-field>
+        <mat-error *ngIf="submited && profilForm.controls.name.hasError('required')">
+          first name is required
+        </mat-error>
+      </div>
 
+      <div class="form-group">
+        <mat-form-field class="d-block" appearance="fill">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <input matInput placeholder="Last Name" formControlName="lname">
+        </mat-form-field>
+        <mat-error *ngIf="submited && profilForm.controls.lastname.hasError('required')">
+          last name is required
+        </mat-error>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="d-block" appearance="fill">
+          <i class="fa fa-address-card" aria-hidden="true"></i>
+          <input matInput placeholder="Adresse" formControlName="adresse">
+        </mat-form-field>
+        <mat-error *ngIf="submited && profilForm.controls.adresse.hasError('required')">
+          adresse is required
+        </mat-error>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="d-block" appearance="fill">
+          <i class="fa fa-briefcase" aria-hidden="true"></i>
+          <input matInput placeholder="Degree" class="form-control" formControlName="degree">
+        </mat-form-field>
+        <mat-error *ngIf="submited && profilForm.controls.degree.hasError('required')">
+          Degree is required
+        </mat-error>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field class="d-block" appearance="fill">
+          <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+          <input matInput type="number" min="0" max="100" placeholder="Age" formControlName="age">
+        </mat-form-field>
+        <mat-error *ngIf="submited && profilForm.controls.age.hasError('required')">
+          Age is required
+        </mat-error>
+
+      </div>
+      <div class="row submit-button-container">
+        <div class="col-md-4">
+          <button mat-raised-button class="btn btn-block btn-dark" type="submit">Create Account</button>
+        </div>
+      </div>
+      <!-- [disabled]="!profilForm.valid" -->
+    </div>
+  </div>
+</form>
