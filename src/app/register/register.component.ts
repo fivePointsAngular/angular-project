@@ -1,5 +1,6 @@
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -27,19 +28,18 @@ export class RegisterComponent implements OnInit {
       phone: new FormControl('', [Validators.required]),
       fax: new FormControl('',),
       password: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      confpassword: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      confpassword: new FormControl('', [Validators.required, Validators.minLength(5), RxwebValidators.compare({ fieldName: 'password' })]),
     });
-    
-    
+
   }
 
   updateValidation(newValue) {
     console.log(newValue);
-    if (newValue=== 'candidate') {
+    if (newValue === 'candidate') {
       this.registForm.controls.fname.setValidators(Validators.required);
-      this.registForm.controls.lname.setValidators(Validators.required);      
+      this.registForm.controls.lname.setValidators(Validators.required);
     }
-    else if (newValue=== 'establishment'){
+    else if (newValue === 'establishment') {
       this.registForm.controls.etbName.setValidators(Validators.required);
     }
 
