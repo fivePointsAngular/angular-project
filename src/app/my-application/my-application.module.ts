@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { SidebarComponent } from '../etablissement/sidebar/sidebar.component';
-import { ListCondidatsComponent } from '../etablissement/list-condidats/list-condidats.component';
 import { DashboardComponent } from '../etablissement/dashboard/dashboard.component';
+import { EtablissementModule } from '../etablissement/etablissement.module';
+import { EtablissementComponent } from '../etablissement/etablissement.component';
+import { MyApplicationComponent } from './my-application.component';
+import { MaterialModule } from '../material/material.module';
+
 
 
 
 @NgModule({
   declarations: [
-    SidebarComponent,
-    ListCondidatsComponent,
-    DashboardComponent
+    MyApplicationComponent,
+    DashboardComponent,
+    EtablissementComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    EtablissementModule,
+    MaterialModule
   ]
 })
 export class MyApplicationModule { }
