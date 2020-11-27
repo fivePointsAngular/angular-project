@@ -22,7 +22,6 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
