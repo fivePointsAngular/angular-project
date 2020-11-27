@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatRippleModule} from '@angular/material/core';
 import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AvatarComponent } from './avatar/avatar.component';
     MatTableModule,
     MatCardModule,
     MatRippleModule,
-     CdkTableModule
+     CdkTableModule,
+     RxReactiveFormsModule
 
   ],
   providers: [],

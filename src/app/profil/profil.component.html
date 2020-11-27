@@ -1,3 +1,4 @@
+<form class="create-form" [formGroup]="profilForm" novalidate (ngSubmit)="submitProfil()">
 
     <div style="text-align:center;">
       <br>
@@ -5,29 +6,40 @@
     </div>
     <div class="row">
       <div class="col col-md-4">
-        <img *ngIf="image!=null" src={{image}} alt="image" class="img-avatar"><br>
+        <img *ngIf="image!=null" src={{image}} alt="image" class="img-avatar" ><br>
         <div style="text-align:center;">
-        <input type="file" (change)="onSelectFile($event)" >
+        <input  [writeFile]="true" type="file"(change)="onSelectFile($event)"  accept='image/*' formControlName="image">
+        <!-- <div *ngIf="profilForm.controls.image.errors.extension">Le champ photo de profil doit être une image (JPG, PNG, JPEG).</div> -->
+
         </div>
         <!-- <button mat-stroked-button class="change-img-button" color="basic" >Change Image</button> -->
       </div>
 
       <div class="col col-md-8">
-        <form class="create-form" [formGroup]="profilForm" novalidate (ngSubmit)="submitProfil()">
           <div class="form-group">
             <mat-form-field class="d-block" appearance="fill">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input matInput placeholder="Name"  formControlName="name">
+              <input matInput placeholder="Name" formControlName="name">
             </mat-form-field>
             <mat-error *ngIf="submited && profilForm.controls.name.hasError('required')">
               first name is <strong>required</strong>
             </mat-error>
           </div>
 
+            <div class="form-group">
+              <mat-form-field class="d-block" appearance="fill">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input matInput placeholder="Last Name" formControlName="lastname">
+              </mat-form-field>
+              <mat-error *ngIf="submited && profilForm.controls.lastname.hasError('required')">
+                last name is <strong>required</strong>
+              </mat-error>
+            </div>
+
           <div class="form-group">
             <mat-form-field class="d-block" appearance="fill">
               <i class="fa fa-address-card" aria-hidden="true"></i>
-              <input matInput placeholder="Adresse"  formControlName="adresse">
+              <input matInput placeholder="Adresse" formControlName="adresse">
             </mat-form-field>
             <mat-error *ngIf="submited && profilForm.controls.adresse.hasError('required')">
               adresse is <strong>required</strong>
@@ -37,7 +49,7 @@
           <div class="form-group">
             <mat-form-field class="d-block" appearance="fill">
               <i class="fa fa-briefcase" aria-hidden="true"></i>
-              <input matInput placeholder="Degree" formControlName="degree">
+              <input matInput placeholder="Degree" class="form-control" formControlName="degree">
             </mat-form-field>
             <mat-error *ngIf="submited && profilForm.controls.degree.hasError('required')">
               Degree is <strong>required</strong>
@@ -57,12 +69,12 @@
           </div>
           <div class="row submit-button-container">
             <div class="col-md-4">
-              <button mat-raised-button class="btn btn-block btn-dark" type="submit">Update Account</button>
+              <button mat-raised-button class="btn btn-block btn-dark" type="submit">Create Account</button>
             </div>
           </div>
           <!-- [disabled]="!profilForm.valid" -->
-        </form>
       </div>
     </div>
+  </form>
 
 
