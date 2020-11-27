@@ -44,4 +44,9 @@ logout(){
     return this.isLoginSubject.asObservable();
   }
 
+  getUserType(typeUser) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    return users[typeUser];
+  }
+
 }
