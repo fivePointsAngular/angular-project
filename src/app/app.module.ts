@@ -20,6 +20,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     MyApplicationComponent,
     EtablissementComponent,
     ProfilComponent,
-    AvatarComponent
+    AvatarComponent,
+    SuperAdministrateurComponent
 
   ],
   imports: [
