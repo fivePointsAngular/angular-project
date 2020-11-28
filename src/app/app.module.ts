@@ -21,6 +21,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SuperAdministrateurComponent } from './super-administrateur/super-admin
     EtablissementComponent,
     ProfilComponent,
     AvatarComponent,
-    SuperAdministrateurComponent
+    SuperAdministrateurComponent,
+    UpdateEtablissementComponent
 
   ],
   imports: [

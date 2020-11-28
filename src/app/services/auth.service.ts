@@ -13,6 +13,11 @@ isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users))
   }
+  register_super_admin(sup_admin) {
+    const admin = JSON.parse(localStorage.getItem("admin")) || [];
+    admin.push(sup_admin);
+    localStorage.setItem("admin", JSON.stringify(admin))
+  }
 
   login(user) {
     const users = JSON.parse(localStorage.getItem("users")) || [];

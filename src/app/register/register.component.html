@@ -51,7 +51,7 @@
       <span matPrefix>+216 &nbsp;&nbsp;</span>
       <input type="tel" matInput placeholder="22-222-222" formControlName="phone">
       <mat-icon matSuffix>mode_edit</mat-icon>
-      <mat-error *ngIf="registForm.controls.fname.hasError('required')">
+      <mat-error *ngIf="registForm.controls.phone.hasError('required')">
         Phone is required.
       </mat-error>
     </mat-form-field>
