@@ -29,7 +29,7 @@ export class ProfilComponent implements OnInit {
     });
 
     const userProfil = this.serviceProfil.getCondidat();
-    if(userProfil != null && userProfil !== undefined){
+    if (userProfil != null && userProfil !== undefined){
       this.profilForm.patchValue(userProfil);
     }
 
@@ -39,6 +39,7 @@ export class ProfilComponent implements OnInit {
     if (this.profilForm.invalid) {
       return;
     }
+ this.serviceProfil.updateProfile(this.profilForm.value);
   }
   onSelectFile(e) {
     if (e.target.files === 0) {
