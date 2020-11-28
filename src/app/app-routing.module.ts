@@ -8,34 +8,40 @@ import { MyApplicationComponent } from './my-application/my-application.componen
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { EtablissementComponent } from './etablissement/etablissement.component';
+import { DashboardComponent } from './etablissement/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'/login',
-    pathMatch:'full'
+    redirectTo: '/login',
+    pathMatch: 'full'
   },
   {
     path: 'login',
     component: LoginComponent,
-  },{
+  }, {
     path: 'register',
     component: RegisterComponent,
 
-  } ,
+  },
   {
     path: 'MyApp',
     component: MyApplicationComponent,
-    children:[{
-      path:'',
-      component:EtablissementComponent
-    }],
-    canActivate:[AuthGuard]
+    children: [{
+      path: '',
+      component: EtablissementComponent
+    },
+    {
+      path: 'dashboard',
+      component: DashboardComponent
+    }
+    ],
+    canActivate: [AuthGuard]
   },
   {
     path: 'profil',
     component: ProfilComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'error500',
