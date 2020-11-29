@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { EtablissementService } from '../etablissement.service';
 
 @Component({
   selector: 'app-super-administrateur',
@@ -6,48 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./super-administrateur.component.css']
 })
 export class SuperAdministrateurComponent implements OnInit {
-  users = [
-    {
-     
-      etbName: "alpha formation",
-      email: "marwen@gmail.com",
-      fax: "7285293",
-      fname: "hhhh",
-      lname: "hhhhhhhhhh",
-      password: "hhhhhhhhhhhhhhh",
-      confpassword: "hhhhhhhh",
-      phone: "85963741",
-      typeUser: "candidate",
+  etablis: Array<any>;
+  DATA : Array<any>=[];
+  dataSource = new MatTableDataSource(this.DATA)
 
-    },
-    {
-      etbName: "fivePoints",
-      email: "marwen@gmail.com",
-      fax: "7812346",
-      fname: "hhhh",
-      lname: "hhhhhhhhhh",
-      password: "hhhhhhhhhhhhhhh",
-      confpassword: "hhhhhhhh",
-      phone: "7418523",
-      typeUser: "candidate",
-
-    }, {
-      etbName: "skpaa",
-      email: "marwen@gmail.com",
-      fax: "4567892",
-      fname: "hhhh",
-      lname: "hhhhhhhhhh",
-      password: "hhhhhhhhhhhhhhh",
-      confpassword: "hhhhhhhh",
-      phone: "85963741",
-      typeUser: "candidate",
-
-    }
-  ];
-
-  constructor() { }
+  constructor(private etablissementService: EtablissementService) { }
 
   ngOnInit(): void {
+    this.etablis=this.etablissementService.listCondidats();
   }
-
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

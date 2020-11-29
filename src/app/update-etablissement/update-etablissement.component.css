@@ -11,3 +11,7 @@
     color: green;
     margin: 120px;
   }
+  
+td {
+  padding-right: 8px;
+}

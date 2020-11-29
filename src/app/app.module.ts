@@ -19,8 +19,14 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+
+import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
+
 import { MyApplicationModule } from './my-application/my-application.module';
+
+
 @NgModule({
+  declarations: [
     AppComponent,
     NavBarComponent,
     RegisterComponent,

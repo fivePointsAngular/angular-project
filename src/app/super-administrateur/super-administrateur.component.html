@@ -8,32 +8,44 @@
         </div>       
     </mat-drawer>
     <mat-drawer-content>
-            <div class="table mt-3">
-                <table class="table table-hover table-striped table-bordered">
-                    <thead class="table-dark text-center">
-                        <tr>
-                            <th>Id</th>
-                            <th>etbName</th>
-                            <th> email</th>
-                            <th>phone</th>
-                            <th>fax </th>
-                            <th> gérer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let user of users ,let i = index">
-                            <td>{{ i }}</td>
-                            <td>{{user.etbName }}</td>
-                            <td>{{user.email }}</td>
-                            <td>{{user.phone }}</td>
-                            <td>{{user.fax }}</td>
-                            <td class="text-center">
-                                <button class="btn btn-info mr-3" (click)="deletUser(user.id)">Delete</button>
-                                <a class="btn btn-danger" [routerLink]="['/dashboard/update', user.id]">Update</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>      
+        <div class="card" style="width: auto;">
+            <nav class="navbar navbar-light ">
+              <a class="navbar-brand">Liste condidats: </a>
+              <form class="form-inline">search:
+                <input matInput (keyup)="applyFilter($event)" class="form-control ml-sm-2" type="search" placeholder="Search"
+                  aria-label="Search">
+              </form>
+            </nav>
+            <div class="card m-3" style="width: auto;">
+              <table class="table table-bordered table-striped table-hover">
+                <thead class="btn-secondary">
+                    <th>ID</th>
+                    <th>prenom</th>
+                    <th>nom</th>
+                    <th>email</th>
+                    <th>phone</th>
+                    <th>actions</th>
+          
+                </thead>
+                <tr *ngFor="let etabli of etablis;;let i=index">
+                    <td>{{i+1 | number:'3.0'}}</td>
+                    <td>{{etabli.fname}}</td>
+                    <td>{{etabli.lname}}</td>
+                    <td>{{etabli.email}}</td>
+                    <td>{{etabli.phone}}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <a  class="btn btn-success btn-block mr-2">Modifier</a>
+                            </div>
+                            <div class="col-sm-6">
+                                <button  type="button" class="btn btn-danger btn-block">Supprimer</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+          </div>
     </mat-drawer-content>
 </mat-drawer-container>

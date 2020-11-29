@@ -1,72 +1,107 @@
-<div class="row mt-4 offset-4 col-4">
-    <form class="example-form text-secondary" [formGroup]="updateForm">
-      <br>
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label> Establishment Name</mat-label>
-        <input matInput formControlName="etbName">
-        <mat-error *ngIf="updateForm.controls.etbName.hasError('required')">
-          Establishment name is required.
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="updateForm.controls.email.hasError('email') && !updateForm.controls.email.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="updateForm.controls.email.hasError('required')">
-          Email is required.
-        </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Telephone</mat-label>
-        <span matPrefix>+216 &nbsp;&nbsp;</span>
-        <input type="tel" matInput placeholder="22-222-222" formControlName="phone">
-        <mat-icon matSuffix>mode_edit</mat-icon>
-        <mat-error *ngIf="updateForm.controls.phone.hasError('required')">
-          Phone is required.
-        </mat-error>
-      </mat-form-field>
-  
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Fax</mat-label>
-        <span matPrefix>+216 &nbsp;&nbsp;</span>
-        <input type="tel" matInput placeholder="22-222-222" formControlName="fax">
-        <mat-icon matSuffix>mode_edit</mat-icon>
-        <mat-error *ngIf="updateForm.controls.fax.hasError('required')">
-          Phone is required.
-        </mat-error>
-      </mat-form-field>
-  
-  
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <div class="list-group mt-3">
+      <a href="#" class="list-group-item list-group-item-action">Super Administrateur </a>
+      <a href="#" class="list-group-item list-group-item-action">List Condidat </a>
+      <a href="#" class="list-group-item list-group-item-action">List établissement</a>
+      <a href="#" class="list-group-item list-group-item-action">Update Profil</a>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="row col offcet-3">
+      <div class="col-1 mt-2">
+        <button mat-button class="btn btn-outline-dark">Retour &nbsp;<svg width="1em" height="1em" viewBox="0 0 16 16"
+            class="bi bi-arrow-left-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+              d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm9.5 8.5a.5.5 0 0 0 0-1H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5z" />
+          </svg>
         </button>
-        <mat-error *ngIf="submited && updateForm.controls.password.hasError('required')">password is required.</mat-error>
-        <mat-error *ngIf="submited && updateForm.controls.password.hasError('minlength')">Password must be 5 characters.
-        </mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="fill" class="example-full-width">
-        <mat-label>Enter your new password</mat-label>
-        <input matInput [type]="hide ? 'newpassword' : 'text'" formControlName="newpassword">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide newpassword'"
-          [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        <mat-error *ngIf="submited && updateForm.controls.newpassword.hasError('required')">password is required.</mat-error>
-        <mat-error *ngIf="submited && updateForm.controls.newpassword.hasError('minlength')">Password must be 5 characters.
-        </mat-error>
-      </mat-form-field>
-      
-  
-      <br>
-      <div><button mat-button type="submit" class="btn btn-block btn-dark mt3">login</button></div>
-    </form>
-  </div>
-  
+      </div>
+      <div class="">
+        <form class="example-form text-secondary" [formGroup]="updateForm">
+          <br>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label> Establishment Name</mat-label>
+                <input matInput formControlName="etbName">
+                <mat-error *ngIf="updateForm.controls.etbName.hasError('required')">
+                  Establishment name is required.
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                <mat-error
+                  *ngIf="updateForm.controls.email.hasError('email') && !updateForm.controls.email.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="updateForm.controls.email.hasError('required')">
+                  Email is required.
+                </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Telephone</mat-label>
+                <span matPrefix>+216 &nbsp;&nbsp;</span>
+                <input type="tel" matInput placeholder="22-222-222" formControlName="phone">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-error *ngIf="updateForm.controls.phone.hasError('required')">
+                  Phone is required.
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+
+            <div class="form-group col-md-6">
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Fax</mat-label>
+                <span matPrefix>+216 &nbsp;&nbsp;</span>
+                <input type="tel" matInput placeholder="22-222-222" formControlName="fax">
+                <mat-icon matSuffix>mode_edit</mat-icon>
+                <mat-error *ngIf="updateForm.controls.fax.hasError('required')">
+                  Phone is required.
+                </mat-error>
+              </mat-form-field>
+
+
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="submited && updateForm.controls.password.hasError('required')">password is required.
+                </mat-error>
+                <mat-error *ngIf="submited && updateForm.controls.password.hasError('minlength')">Password must be 5
+                  characters.
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="example-full-width">
+                <mat-label>Enter your new password</mat-label>
+                <input matInput [type]="hide ? 'newpassword' : 'text'" formControlName="newpassword">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide newpassword'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="submited && updateForm.controls.newpassword.hasError('required')">password is
+                  required.
+                </mat-error>
+                <mat-error *ngIf="submited && updateForm.controls.newpassword.hasError('minlength')">Password must be 5
+                  characters.
+                </mat-error>
+              </mat-form-field>
+
+            </div>
+          </div>
+          <br>
+          <div>
+            <button mat-button type="submit" class="btn btn-block btn-dark mt3">confirm</button>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
