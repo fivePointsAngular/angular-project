@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { EtablissementService } from '../etablissement.service';
+import { SuperadminService } from '../services/superadmin.service';
 
 @Component({
   selector: 'app-super-administrateur',
@@ -12,10 +12,10 @@ export class SuperAdministrateurComponent implements OnInit {
   DATA : Array<any>=[];
   dataSource = new MatTableDataSource(this.DATA)
 
-  constructor(private etablissementService: EtablissementService) { }
+  constructor(private SuperadminServices: SuperadminService) { }
 
   ngOnInit(): void {
-    this.etablis=this.etablissementService.listCondidats();
+    this.etablis=this.SuperadminServices.listEtablissement();
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

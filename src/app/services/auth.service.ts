@@ -10,6 +10,7 @@ isLoginSubject = new BehaviorSubject<boolean>(this.isAuthentificated())
 
   register(user) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
+    user['id']=users.length;
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users))
   }
