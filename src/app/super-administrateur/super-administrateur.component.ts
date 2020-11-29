@@ -1,3 +1,4 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SuperadminService } from '../services/superadmin.service';
@@ -17,6 +18,10 @@ export class SuperAdministrateurComponent implements OnInit {
   ngOnInit(): void {
     this.etablis=this.SuperadminServices.listEtablissement();
   }
+  deletEtbli(id){
+    this.SuperadminServices.deleteEtbli(id) 
+    }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

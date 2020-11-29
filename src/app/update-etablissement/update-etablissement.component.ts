@@ -30,7 +30,6 @@ export class UpdateEtablissementComponent implements OnInit {
     });
     this.id = this.router.snapshot.paramMap.get('id');
     const etabli = this.SuperadminServices.getEtablibyid(this.id);
-    console.log(etabli);
     this.updateForm.patchValue(etabli);
   }
   submitupdate() {
@@ -40,10 +39,8 @@ export class UpdateEtablissementComponent implements OnInit {
       return;
     }else
     {
-      console.log("ok");
-      // this.updateForm['id']=this.id;
       this.SuperadminServices.updateEtbli(this.id,this.updateForm)
-      this.route.navigateByUrl("/admin"); 
+     this.route.navigateByUrl("/admin"); 
     }
   }
 

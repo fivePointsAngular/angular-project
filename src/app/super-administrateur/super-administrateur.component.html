@@ -39,7 +39,7 @@
                                 <a [routerLink]="['/etablissement/update',etabli.id]" class="btn btn-success btn-block mr-2">Modifier</a>
                             </div>
                             <div class="col-sm-6">
-                                <button  type="button" class="btn btn-danger btn-block">Supprimer</button>
+                                <button  type="button" (click)="deletEtbli(etabli.id)" class="btn btn-danger btn-block">Supprimer</button>
                             </div>
                         </div>
                     </td>
