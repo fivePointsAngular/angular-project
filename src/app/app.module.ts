@@ -19,7 +19,11 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+
+import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
+
 import { MyApplicationModule } from './my-application/my-application.module';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { MyApplicationModule } from './my-application/my-application.module';
     Error500Component,
     ProfilComponent,
     AvatarComponent,
-    SuperAdministrateurComponent
+    SuperAdministrateurComponent,
+    UpdateEtablissementComponent
 
   ],
   imports: [

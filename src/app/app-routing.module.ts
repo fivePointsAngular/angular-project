@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './auth.guard';
 import { EtablissementComponent } from './etablissement/etablissement.component';
 import { DashboardComponent } from './etablissement/dashboard/dashboard.component';
+import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
 
 const routes: Routes = [
   {
@@ -42,6 +44,14 @@ const routes: Routes = [
     path: 'profil',
     component: ProfilComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin',
+    component: SuperAdministrateurComponent,
+  },
+  {
+    path: 'etablissement/update/:id',
+    component: UpdateEtablissementComponent,
   },
   {
     path: 'error500',
