@@ -11,8 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
-import { MyApplicationComponent } from './my-application/my-application.component';
-import { EtablissementComponent } from './etablissement/etablissement.component';
 import { ProfilComponent } from './profil/profil.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
@@ -23,6 +21,11 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
+import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
+
+import { MyApplicationModule } from './my-application/my-application.module';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,11 +34,10 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     LoginComponent,
     Error404Component,
     Error500Component,
-    MyApplicationComponent,
-    EtablissementComponent,
     ProfilComponent,
     AvatarComponent,
-    SuperAdministrateurComponent
+    SuperAdministrateurComponent,
+    UpdateEtablissementComponent
 
   ],
   imports: [
@@ -50,7 +52,9 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     MatRippleModule,
      CdkTableModule,
      RxReactiveFormsModule,
-     AlifeFileToBase64Module
+     AlifeFileToBase64Module,
+     MyApplicationModule,
+     RxReactiveFormsModule
 
   ],
   providers: [],
