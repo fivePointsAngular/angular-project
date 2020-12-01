@@ -16,34 +16,29 @@ export class AuthService {
   }
   register_super_admin() {
     const super_admin = { email: "marwensghair@gmail.com", password: "admin", typeUser: "admin" , fname: "marwen", lname: "sghair"}
-    const admin = JSON.parse(localStorage.getItem("admin")) || [];
-    super_admin['id'] = admin.length;
-    if (admin.length === 0) {
-      admin.push(super_admin)
-      localStorage.setItem("admin", JSON.stringify(admin))
-    }
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const ad = users.find(x => x.typeUser==="admin")
+     if (ad === undefined) {
+       users.push(super_admin)
+       localStorage.setItem("users", JSON.stringify(users))
+     }
   }
 
   login(user) {
-    const admin = JSON.parse(localStorage.getItem("admin")) || [];
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const admins = admin.find(ad => ad.email === user.email && ad.password === user.password);
-    if (admins !== undefined) {
-      localStorage.setItem('authentificated_user', JSON.stringify(admins));
+    const userFound = users.find(u => u.email === user.email && u.password === user.password);
+    if (userFound !== undefined) {
+      localStorage.setItem('authentificated_user', JSON.stringify(userFound));
       localStorage.setItem('token', 'JWT');
       this.isLoginSubject.next(true);
-      return "admin";
-    }
-    const use = users.find(x => x.email === user.email && x.password === user.password);
-    if (use !== undefined) {
-      localStorage.setItem('authentificated_user', JSON.stringify(use));
-      localStorage.setItem('token', 'JWT');
-      this.isLoginSubject.next(true);
-      if (use.typeUser === "establishment") {
-        return "establishment";
+      if (userFound.typeUser === 'admin') {
+        return 'admin';
       }
-      if (use.typeUser === "candidate") {
-        return "candidate"
+      if (userFound.typeUser === 'establishment') {
+        return 'establishment';
+      }
+      if (userFound.typeUser === 'candidate') {
+        return 'candidate'
       }
     }
   }

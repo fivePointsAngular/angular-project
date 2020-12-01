@@ -57,7 +57,7 @@ export class ProfilComponent implements OnInit {
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
         this.image = event.target.result;
-        //reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+        // reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
         //  localStorage.setItem('authentificated_user', JSON.stringify(base64Data));
         // console.log(base64Data);
       }
