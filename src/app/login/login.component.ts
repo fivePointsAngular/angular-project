@@ -9,24 +9,21 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  super_admin={email:"marwensghair@gmail.com",password:"admin"}
   hide = true;
   submited = true;
   loginForm: FormGroup;
 
   constructor(private AuthServices: AuthService , private route: Router) { }
 
-  save_superAdmin(super_admin){
-    this.AuthServices.register_super_admin(super_admin);
-  }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required,Validators.minLength(5)]),
     });
-    this.save_superAdmin(this.super_admin);
-
+  
+      this.AuthServices.register_super_admin();
+    
   }
   
   submitlogin() {
@@ -35,11 +32,15 @@ export class LoginComponent implements OnInit {
       console.log("invalid");
       return;                   
     }
-
-  if ( this.AuthServices.login(this.loginForm.value)){
+    if ( this.AuthServices.login(this.loginForm.value)==="admin"){
+      this.route.navigateByUrl("/admin");
+    }
+  if ( this.AuthServices.login(this.loginForm.value)==="establishment"){
     this.route.navigateByUrl("/MyApp");
   }
-
+  if ( this.AuthServices.login(this.loginForm.value)==="candidate") {
+    this.route.navigateByUrl("/profil");
+  } 
   }
 
 }
