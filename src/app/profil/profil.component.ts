@@ -13,11 +13,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfilComponent implements OnInit {
   // name:any;
   // lastname:any;
-  id: any;
   image: any;
   submited = false;;
   profilForm: FormGroup;
-  constructor(private serviceProfil: ProfilService, private rooter: ActivatedRoute) { }
+  constructor(private serviceProfil: ProfilService,private route: Router) { }
 
   ngOnInit(): void {
     this.profilForm = new FormGroup({
@@ -39,7 +38,8 @@ export class ProfilComponent implements OnInit {
     if (this.profilForm.invalid) {
       return;
     }
-    this.serviceProfil.updateProfile(this.id, this.profilForm.value);
+    this.serviceProfil.updateProfile(this.profilForm.value);
+    this.route.navigateByUrl("/dashboard");
   }
 
   onSelectFile(e) {
