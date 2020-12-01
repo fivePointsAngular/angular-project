@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 
 
 
+
 @NgModule({
   declarations: [
     MyApplicationComponent,
@@ -18,7 +19,7 @@ import { MaterialModule } from '../material/material.module';
     CommonModule,
     RouterModule,
     EtablissementModule,
-    MaterialModule
+    MaterialModule,
   ]
 })
 export class MyApplicationModule { }
