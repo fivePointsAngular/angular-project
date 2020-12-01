@@ -11,7 +11,7 @@
       <mat-label>Filter</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
     </mat-form-field>
-    <table class="table table-bordered table-striped table-hover">
+    <table  class="table table-bordered table-striped table-hover">
       <thead class="btn-secondary">
           <th>ID</th>
           <th>prenom</th>
@@ -33,7 +33,7 @@
                       <a  class="btn btn-success btn-block mr-2">Modifier</a>
                   </div>
                   <div class="col-sm-6">
-                      <button  type="button" class="btn btn-danger btn-block">Supprimer</button>
+                      <button (click)='deleteUser(i)' type="button" class="btn btn-danger btn-block">Supprimer</button>
                   </div>
               </div>
           </td>

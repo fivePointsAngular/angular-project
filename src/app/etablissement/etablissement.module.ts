@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ListCondidatsComponent } from './list-condidats/list-condidats.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,12 +18,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   exports:[
     SidebarComponent,
     ListCondidatsComponent,
-    DashboardComponent
+    DashboardComponent,
   ]
 })
 export class EtablissementModule { }
