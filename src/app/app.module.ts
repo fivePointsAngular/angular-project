@@ -12,13 +12,14 @@ import { LoginComponent } from './login/login.component';
 import { Error404Component } from './error404/error404.component';
 import { Error500Component } from './error500/error500.component';
 import { ProfilComponent } from './profil/profil.component';
-import {MatTableModule} from '@angular/material/table';
-import {MatCardModule} from '@angular/material/card';
-import {MatRippleModule} from '@angular/material/core';
-import {CdkTableModule} from '@angular/cdk/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatRippleModule } from '@angular/material/core';
+import { CdkTableModule } from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 import { UpdateEtablissementComponent } from './update-etablissement/update-etablissement.component';
 
@@ -49,9 +50,11 @@ import { MyApplicationModule } from './my-application/my-application.module';
     MatTableModule,
     MatCardModule,
     MatRippleModule,
-     CdkTableModule,
-     MyApplicationModule,
-     RxReactiveFormsModule
+    CdkTableModule,
+    RxReactiveFormsModule,
+    AlifeFileToBase64Module,
+    MyApplicationModule,
+    RxReactiveFormsModule
 
   ],
   providers: [],

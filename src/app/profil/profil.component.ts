@@ -1,5 +1,5 @@
 import { ProfilService } from './../services/profil.service';
-import { Observable, Subscriber } from 'rxjs';
+import { Observable, ReplaySubject, Subscriber } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
@@ -13,8 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfilComponent implements OnInit {
   // name:any;
   // lastname:any;
-  image: any;
-  submited = false;
+  email:any;
+  image:any;
+  submited = false;;
   profilForm: FormGroup;
   constructor(private serviceProfil: ProfilService , private rooter: ActivatedRoute) { }
 
@@ -39,7 +40,9 @@ export class ProfilComponent implements OnInit {
     if (this.profilForm.invalid) {
       return;
     }
+ this.serviceProfil.updateProfile(this.profilForm.value);
   }
+
   onSelectFile(e) {
     if (e.target.files === 0) {
       return;
@@ -50,49 +53,21 @@ export class ProfilComponent implements OnInit {
       return;
     }
     if (e.target.files !== 0) {
+
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
-        this.image = event.target.result;
+         this.image = event.target.result;
+      //reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+      //  localStorage.setItem('authentificated_user', JSON.stringify(base64Data));
+    // console.log(base64Data);
+
       }
+
+     }
     }
   }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //   convertToBase64 (file:File){
-  // const observable = new Observable ((subscriber:Subscriber)=>{
-  //   this.readFile(file,subscriber);
-
-  // });
-
-  //   }
-
-  //   readFile(file:File , subscriber:Subscriber<any>){
-  // const filereader = new FileReader();
-  // filereader.readAsDataURL(file);
-  // filereader.onload =()=>{
-  //   subscriber.next(filereader.result);
-  // }
-  // filereader.onerror =(error)=>{
-  //   subscriber.error(error);
-  //   subscriber.complete();
-  // }
-  //   }
-}

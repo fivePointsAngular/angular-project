@@ -4,6 +4,7 @@
     <br>
     <mat-card-title>Conditate Profil</mat-card-title>
   </div>
+
   <div class="row">
     <div class="col-md-4">
       <img *ngIf="image!=null" src={{image}} alt="image" class="img-avatar"><br>
@@ -22,10 +23,11 @@
         <mat-form-field class="d-block" appearance="fill">
           <i class="fa fa-user-o" aria-hidden="true"></i>
           <input matInput placeholder="Name" formControlName="fname">
+          <!-- </mat-form-field> -->
+          <mat-error *ngIf="submited && profilForm.controls.fname.hasError('required')">
+            first name is required
+          </mat-error>
         </mat-form-field>
-        <mat-error *ngIf="submited && profilForm.controls.name.hasError('required')">
-          first name is required
-        </mat-error>
       </div>
 
       <div class="form-group">
@@ -33,7 +35,7 @@
           <i class="fa fa-user-o" aria-hidden="true"></i>
           <input matInput placeholder="Last Name" formControlName="lname">
         </mat-form-field>
-        <mat-error *ngIf="submited && profilForm.controls.lastname.hasError('required')">
+        <mat-error *ngIf="submited && profilForm.controls.lname.hasError('required')">
           last name is required
         </mat-error>
       </div>
@@ -42,35 +44,38 @@
         <mat-form-field class="d-block" appearance="fill">
           <i class="fa fa-address-card" aria-hidden="true"></i>
           <input matInput placeholder="Adresse" formControlName="adresse">
+          <!-- </mat-form-field> -->
+          <mat-error *ngIf="submited && profilForm.controls.adresse.hasError('required')">
+            adresse is required
+          </mat-error>
         </mat-form-field>
-        <mat-error *ngIf="submited && profilForm.controls.adresse.hasError('required')">
-          adresse is required
-        </mat-error>
       </div>
 
       <div class="form-group">
         <mat-form-field class="d-block" appearance="fill">
           <i class="fa fa-briefcase" aria-hidden="true"></i>
-          <input matInput placeholder="Degree" class="form-control" formControlName="degree">
+          <input matInput placeholder="Degree" formControlName="degree">
+          <!-- </mat-form-field> -->
+          <mat-error *ngIf="submited && profilForm.controls.degree.hasError('required')">
+            Degree is required
+          </mat-error>
         </mat-form-field>
-        <mat-error *ngIf="submited && profilForm.controls.degree.hasError('required')">
-          Degree is required
-        </mat-error>
       </div>
 
       <div class="form-group">
         <mat-form-field class="d-block" appearance="fill">
           <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
           <input matInput type="number" min="0" max="100" placeholder="Age" formControlName="age">
+          <!-- </mat-form-field> -->
+          <mat-error *ngIf="submited && profilForm.controls.age.hasError('required')">
+            Age is required
+          </mat-error>
         </mat-form-field>
-        <mat-error *ngIf="submited && profilForm.controls.age.hasError('required')">
-          Age is required
-        </mat-error>
-
       </div>
+
       <div class="row submit-button-container">
         <div class="col-md-4">
-          <button mat-raised-button class="btn btn-block btn-dark" type="submit">Create Account</button>
+          <button mat-raised-button class="btn btn-block btn-dark" type="submit">Update Account</button>
         </div>
       </div>
       <!-- [disabled]="!profilForm.valid" -->
