@@ -7,12 +7,10 @@ import { Injectable } from '@angular/core';
 export class ProfilService {
 
   constructor() { }
-
   getCondidat() {
     const listCondidat = JSON.parse(localStorage.getItem("authentificated_user"));
     return listCondidat;
   }
-
   updateProfile(updatedProfil) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     const auth_user = JSON.parse(localStorage.getItem("authentificated_user"));
