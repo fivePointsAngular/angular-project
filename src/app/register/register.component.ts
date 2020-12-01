@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
   }
 
   updateValidation(newValue) {
-    console.log(newValue);
     if (newValue === 'candidate') {
       this.registForm.controls.fname.setValidators(Validators.required);
       this.registForm.controls.lname.setValidators(Validators.required);
@@ -48,7 +47,6 @@ export class RegisterComponent implements OnInit {
   submitregister() {
     this.submited = true;
     if (this.registForm.invalid) {
-      console.log("invalid");
       return;
     }
     this.AuthServices.register(this.registForm.value);
