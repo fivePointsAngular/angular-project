@@ -48,10 +48,12 @@ const routes: Routes = [
   {
     path: 'admin',
     component: SuperAdministrateurComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'etablissement/update/:id',
     component: UpdateEtablissementComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'error500',

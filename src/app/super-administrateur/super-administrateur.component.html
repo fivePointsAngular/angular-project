@@ -1,51 +1,53 @@
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
-        <div class="list-group mt-3 text-black-50">
-          <h3>Super Administrateur </h3>
-          <a routerLink="/admin" class="list-group-item list-group-item-action mt-3">List établissement</a>
-          <a href="#" class="list-group-item list-group-item-action">List Condidat</a>
-          <a href="#" class="list-group-item list-group-item-action">Update Profil</a>
-        </div>
-      </mat-drawer>
-    <mat-drawer-content>
-        <div class="card" style="width: auto;">
-            <nav class="navbar navbar-light ">
-              <a class="navbar-brand">Liste condidats: </a>
-              <form class="form-inline">search:
-                <input matInput (keyup)="applyFilter($event)" class="form-control ml-sm-2" type="search" placeholder="Search"
-                  aria-label="Search">
-              </form>
-            </nav>
-            <div class="card m-3" style="width: auto;">
-              <table class="table table-bordered table-striped table-hover">
-                <thead class="btn-secondary">
-                    <th>ID</th>
-                    <th>Etablissement name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Fax</th>
-                    <th>Actions</th>
-          
-                </thead>
-                <tr *ngFor="let etabli of etablis;let i=index">
-                    <td>{{etabli.id}}</td>
-                    <td>{{etabli.etbName}}</td>
-                    <td>{{etabli.email}}</td>
-                    <td>{{etabli.phone}}</td>
-                    <td>{{etabli.fax}}</td>
-                    <td>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <a [routerLink]="['/etablissement/update',etabli.id]" class="btn btn-success btn-block mr-2">Modifier</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <button  type="button" (click)="deletEtbli(etabli.id)" class="btn btn-danger btn-block">Supprimer</button>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            </div>
-          </div>
-    </mat-drawer-content>
+  <mat-drawer mode="side" opened>
+    <div class="list-group mt-3 text-black-50">
+      <h3>Super Administrateur </h3>
+      <a routerLink="/admin" class="list-group-item list-group-item-action mt-3">List établissement</a>
+      <a href="#" class="list-group-item list-group-item-action">List Condidat</a>
+      <a routerLink="/profil" class="list-group-item list-group-item-action">Update Profil</a>
+    </div>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="card" style="width: auto;">
+      <nav class="navbar navbar-light ">
+        <a class="navbar-brand">Liste condidats: </a>
+        <form class="form-inline">search:
+          <input matInput (keyup)="applyFilter($event)" class="form-control ml-sm-2" type="search" placeholder="Search"
+            aria-label="Search">
+        </form>
+      </nav>
+      <div class="card m-3" style="width: auto;">
+        <table class="table table-bordered table-striped table-hover">
+          <thead class="btn-secondary">
+            <th>ID</th>
+            <th>Etablissement name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Fax</th>
+            <th>Actions</th>
+
+          </thead>
+          <tr *ngFor="let etabli of etablis;let i=index">
+            <td>{{etabli.id}}</td>
+            <td>{{etabli.etbName}}</td>
+            <td>{{etabli.email}}</td>
+            <td>{{etabli.phone}}</td>
+            <td>{{etabli.fax}}</td>
+            <td>
+              <div class="row">
+                <div class="col-sm-6">
+                  <a [routerLink]="['/etablissement/update',etabli.id]"
+                    class="btn btn-success btn-block mr-2">Modifier</a>
+                </div>
+                <div class="col-sm-6">
+                  <button type="button" (click)="deletEtbli(etabli.id)"
+                    class="btn btn-danger btn-block">Supprimer</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>
