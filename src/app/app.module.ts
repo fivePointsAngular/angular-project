@@ -21,6 +21,7 @@ import {CdkTableModule} from '@angular/cdk/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { SuperAdministrateurComponent } from './super-administrateur/super-administrateur.component';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SuperAdministrateurComponent } from './super-administrateur/super-admin
     MatCardModule,
     MatRippleModule,
      CdkTableModule,
-     RxReactiveFormsModule
+     RxReactiveFormsModule,
+     AlifeFileToBase64Module
 
   ],
   providers: [],
