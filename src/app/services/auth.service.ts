@@ -15,33 +15,32 @@ export class AuthService {
     localStorage.setItem("users", JSON.stringify(users))
   }
   register_super_admin() {
-    const super_admin = { email: "marwensghair@gmail.com", password: "admin" }
-    const admin = JSON.parse(localStorage.getItem("admin")) || [];
-    console.log(admin);
-    if (admin === []) {
-      admin.push(super_admin)
-      localStorage.setItem("admin", JSON.stringify(admin))
-    }
-  }
-  
-  login(user) {
-    const admin = JSON.parse(localStorage.getItem("admin")) || [];
+    const super_admin = { email: "marwensghair@gmail.com", password: "admin", typeUser: "admin" , fname: "marwen", lname: "sghair"}
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const admins = admin.find(ad => ad.email === user.email || ad.password === user.password);
-    if (admins !== undefined) {
+    const ad = users.find(x => x.typeUser==="admin")
+     if (ad === undefined) {
+       users.push(super_admin)
+       localStorage.setItem("users", JSON.stringify(users))
+     }
+  }
+
+  login(user) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const userFound = users.find(u => u.email === user.email && u.password === user.password);
+    if (userFound !== undefined) {
+      localStorage.setItem('authentificated_user', JSON.stringify(userFound));
       localStorage.setItem('token', 'JWT');
       this.isLoginSubject.next(true);
-      return "admin";
-    }
-    const use = users.find(x => x.email === user.email || x.password === user.password);
-    if (use.typeUser === "establishment") {
-      return "establishment";
-    }
-    else
-      if (use.typeUser === "candidate") {
-        return "candidate"
+      if (userFound.typeUser === 'admin') {
+        return 'admin';
       }
-    localStorage.setItem('authentificated_user', JSON.stringify(use));
+      if (userFound.typeUser === 'establishment') {
+        return 'establishment';
+      }
+      if (userFound.typeUser === 'candidate') {
+        return 'candidate'
+      }
+    }
   }
 
   public isAuthentificated(): boolean {
@@ -59,9 +58,9 @@ export class AuthService {
     this.isLoginSubject.next(false);
   }
 
-  isLoggedIn() : Observable<boolean> {
+  isLoggedIn(): Observable<boolean> {
     return this.isLoginSubject.asObservable();
-   }
+  }
 
 
 

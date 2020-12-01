@@ -13,11 +13,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ProfilComponent implements OnInit {
   // name:any;
   // lastname:any;
-  email:any;
-  image:any;
+  id: any;
+  image: any;
   submited = false;;
   profilForm: FormGroup;
-  constructor(private serviceProfil: ProfilService , private rooter: ActivatedRoute) { }
+  constructor(private serviceProfil: ProfilService, private rooter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.profilForm = new FormGroup({
@@ -30,17 +30,16 @@ export class ProfilComponent implements OnInit {
     });
 
     const userProfil = this.serviceProfil.getCondidat();
-    if(userProfil != null && userProfil !== undefined){
+    if (userProfil != null && userProfil !== undefined) {
       this.profilForm.patchValue(userProfil);
     }
-
   }
   submitProfil() {
     this.submited = true;
     if (this.profilForm.invalid) {
       return;
     }
- this.serviceProfil.updateProfile(this.profilForm.value);
+    this.serviceProfil.updateProfile(this.id, this.profilForm.value);
   }
 
   onSelectFile(e) {
@@ -57,16 +56,15 @@ export class ProfilComponent implements OnInit {
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
       reader.onload = (event: any) => {
-         this.image = event.target.result;
-      //reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
-      //  localStorage.setItem('authentificated_user', JSON.stringify(base64Data));
-    // console.log(base64Data);
-
+        this.image = event.target.result;
+        // reader.result.replace(/^data:image\/[a-z]+;base64,/, "");
+        //  localStorage.setItem('authentificated_user', JSON.stringify(base64Data));
+        // console.log(base64Data);
       }
 
-     }
     }
   }
+}
 
 
 

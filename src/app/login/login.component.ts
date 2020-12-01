@@ -18,19 +18,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required,Validators.email]),
-      password: new FormControl('', [Validators.required,Validators.minLength(5)]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required, Validators.minLength(5)]),
     });
-  
+
       this.AuthServices.register_super_admin();
-    
+
   }
-  
+
   submitlogin() {
     this.submited = true;
     if (this.loginForm.invalid) {
-      console.log("invalid");
-      return;                   
+      return;
     }
     if ( this.AuthServices.login(this.loginForm.value)==="admin"){
       this.route.navigateByUrl("/admin");
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
   }
   if ( this.AuthServices.login(this.loginForm.value)==="candidate") {
     this.route.navigateByUrl("/profil");
-  } 
+  }
   }
 
 }
